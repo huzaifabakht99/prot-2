@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+*:not(#icon){
+    font-family: 'Manrope', sans-serif;
+}
+  img{
+    margin-right: 5px;
+  }
+  #icon{
+    position: absolute;
+    top:11px;
+    font-size: 15px;
+  }
+.main{
+    padding-bottom: 54px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: #7a7a7a !important;
+   }
+::ng-deep .mat-form-field-wrapper{
+    padding-bottom: 6.5px !important;
+    margin-bottom: 0.5em;
+    background-color: #f4f4f4;
+    border-radius: 6px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #7a7a7a !important;
+    opacity: 0;
+
+}
+::ng-deep .mat-form-field-infix{
+    padding-top: 7px !important;
+}
+::ng-deep .mat-form-field-flex{
+    height: 50px !important;
+}
+.example-container .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+.check-box{
+    width: 40px;
+}
+.buttons{
+
+    margin: 116px 2.594rem 2.594rem ;
+    height: 118px ;
+
+}
+.text{
+    margin: 0px 1.563rem;
+}
+.input-feild{
+    padding:0rem 0.875rem ;
+    margin:0px !important ;
+}
+::ng-deep .mat-form-field-wrapper{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+h3{
+    font-size: 18px;
+    font-weight:500;
+    line-height: 23.24px;
+    margin-bottom: 8px;
+    letter-spacing: 1%;
+}
+p{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16.39px;
+    color: #848484;
+    letter-spacing: 1%;
+    margin-bottom: 35px;
+}
+.signin-form{
+    margin-top: 4.813rem;
+}
+button{
+    border: none;
+    background-color: black;
+    color: white;
+    height: 50px;
+    border-radius: 6px ;
+    
+}
+.white{
+    background-color: white ;
+    color: black ;
+    border: 1px black solid;
+    
+}
+button:hover{
+    filter: brightness(95%);
+}
+.check-box{
+    width: 95%;
+    margin:1rem  0.875rem;
+}
+.inner-text{
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16.39px;
+    color: #848484;
+    letter-spacing: 1%;
+    padding: 0rem 0.5rem;
+    text-align: justify;
+   
+}
+.terms-text{
+    color: #E71583;
+    text-decoration: underline;
+}
+#flag{
+    width: 34px;
+    height: 19px;
+}
+app-returning-menu-bar{
+    position: sticky;
+    top: 45px;
+    z-index: 99999999;
+
+
+}
+.number{
+    padding-left: 7px;
+}

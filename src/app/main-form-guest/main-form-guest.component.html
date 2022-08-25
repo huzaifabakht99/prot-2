@@ -1,0 +1,205 @@
+<app-order-menu-bar></app-order-menu-bar>
+<div class="main-form">
+    <div class="check-points"  fxLayout="row" fxLayoutAlign="space-around center">
+        <span fxLayout="row" fxLayoutAlign= "space-between center">
+            <svg [ngStyle]="{'color': phoneNumber.value =='' ? '#696969' : '#E71583' }" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle-fill" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM9.283 4.002V12H7.971V5.338h-.065L6.072 6.656V5.385l1.899-1.383h1.312Z"/>
+            </svg>
+            <span class="ceck-point-text" [ngStyle]="{'color': phoneNumber.value =='' ? '#696969' : '#E71583' }" xmlns="http://www.w3.org/2000/svg">  Shipping</span>
+            <span class="bar"><mat-icon id="icon" [ngStyle]="{'color': selectedRadio==2||selectedRadio==1||selectedRadio==3   ? '#E71583' : '#696969' }" >minimize</mat-icon></span>
+            
+        </span>
+        <span fxLayout="row" fxLayoutAlign="space-between center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-2-circle-fill" viewBox="0 0 16 16" [ngStyle]="{'color': selectedRadio==2||selectedRadio==1||selectedRadio==3   ? '#E71583' : '#696969' }">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0ZM6.646 6.24c0-.691.493-1.306 1.336-1.306.756 0 1.313.492 1.313 1.236 0 .697-.469 1.23-.902 1.705l-2.971 3.293V12h5.344v-1.107H7.268v-.077l1.974-2.22.096-.107c.688-.763 1.287-1.428 1.287-2.43 0-1.266-1.031-2.215-2.613-2.215-1.758 0-2.637 1.19-2.637 2.402v.065h1.271v-.07Z"/>
+            </svg>
+            <span class="ceck-point-text" [ngStyle]="{'color': selectedRadio==2||selectedRadio==1||selectedRadio==3   ? '#E71583' : '#696969' }"> Delivery</span>
+            <span class="bar"><mat-icon id="icon" [ngStyle]="{'color': selectedMethod =='card' || selectedMethod =='klarna' || selectedMethod =='paypal' || selectedMethod =='amazon' ?  '#E71583': '#696969' }">minimize</mat-icon></span>
+        </span>
+        <span fxLayout="row" fxLayoutAlign="space-between center">
+            <svg [ngStyle]="{'color': selectedMethod =='card' || selectedMethod =='klarna' || selectedMethod =='paypal' || selectedMethod =='amazon' ?  '#E71583': '#696969' }" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-3-circle-fill" viewBox="0 0 16 16">
+                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0Zm-8.082.414c.92 0 1.535.54 1.541 1.318.012.791-.615 1.36-1.588 1.354-.861-.006-1.482-.469-1.54-1.066H5.104c.047 1.177 1.05 2.144 2.754 2.144 1.653 0 2.954-.937 2.93-2.396-.023-1.278-1.031-1.846-1.734-1.916v-.07c.597-.1 1.505-.739 1.482-1.876-.03-1.177-1.043-2.074-2.637-2.062-1.675.006-2.59.984-2.625 2.12h1.248c.036-.556.557-1.054 1.348-1.054.785 0 1.348.486 1.348 1.195.006.715-.563 1.237-1.342 1.237h-.838v1.072h.879Z"/>
+            </svg>
+            <span class="ceck-point-text" [ngStyle]="{'color': selectedMethod =='card' || selectedMethod =='klarna' || selectedMethod =='paypal' || selectedMethod =='amazon' ?  '#E71583': '#696969' }"> Payment</span>
+        </span>
+    </div>
+    <div class="shipping-info">
+        <h3>1. Shipping Information</h3>
+        <form class="feilds" fxLayout="column" fxLayoutAlign="space-around left" ngSubmmit="onSubmmit()">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="" [formControl]="email" ngModel>
+                <mat-error *ngIf="email.invalid">Incorrect email (ex: xyz@gmail.com)</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Full Name</mat-label>
+                <input matInput placeholder="" [formControl]="fullName">
+                <mat-error *ngIf="fullName.invalid">Please enter Full Name</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Shipping Address</mat-label>
+                <input matInput placeholder="" [formControl]="shippingAddress">
+                <mat-error *ngIf="shippingAddress.invalid">Please enter Shipping Address</mat-error>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="" [formControl]="phoneNumber">
+                <mat-error *ngIf="phoneNumber.invalid">Phone number must be of 11 digits</mat-error>
+              </mat-form-field>
+            </form>
+        <!-- <div class="manual"><a  (click)="onClickManualAddress()">Enter Address Manually</a></div>
+        <div class="feilds manual-address" fxLayout="column" fxLayoutAlign="space-around left" *ngIf="enterManualAddress==true">
+            <mat-form-field appearance="outline">
+                <mat-label>Address Line 1</mat-label>
+                <input matInput placeholder="Address Line 1" [formControl]="addressLine1">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label> Address Line 2 (Optional)</mat-label>
+                <input matInput placeholder="Address Line 2" [formControl]="addressLine2">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City" [formControl]="city">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Country</mat-label>
+                <input matInput placeholder="Country" [formControl]="country">
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-label>Zip Code</mat-label>
+                <input matInput placeholder="Zip Code" [formControl]="zipCode">
+              </mat-form-field>
+        </div> -->
+        <mat-checkbox class="example-margin" (click)="onClick()" [checked]="isChecked">My billing address is same as shipping.</mat-checkbox>
+    </div>
+    <div class="dilivery">
+        <h3>2. Delivery</h3>
+        <div class="box disabled" fxLayout="row" fxLayoutAlign="space-between top" *ngIf="shippingAddress.value ===''">
+            <div class="required-shippingadd">Shipping options will show up once you enter shipping address</div>
+         </div>
+        <div class="enable" *ngIf="shippingAddress.value !=''" >
+            <mat-radio-group aria-label="Select an option" fxLayout="column" fxLayoutAlign="space-around left" [(ngModel)]="selectedRadio">
+                <div class="options" fxLayout="row" fxLayoutAlign="start left" [ngStyle]="{'bacground-color': isCheckedDelivery ==true ? '#ffffff' : '#f4f4f4' }">
+                    <mat-radio-button value="1" [checked]="true" [formControl]="diliveryType" [checked]="isCheckedDelivery" (click)="onSelectRadio()"></mat-radio-button>
+                    <div class="text-radio-button" >
+                        <h4>Standard <span class="delivery-days"> (6 to 9 business days) </span> Rs 150</h4>
+                        <p>Order within <span class="dateNtime">6 hrs 1 min</span> to get it by <span class="dateNtime">Thurs, Jan 16</span></p>
+                    </div>
+                </div>
+                <div class="options" fxLayout="row" fxLayoutAlign="start left">
+                    <mat-radio-button value="2" [formControl]="diliveryType" [checked]="isCheckedDelivery" (click)="onSelectRadio2()"></mat-radio-button>
+                <div class="text-radio-button">
+                    <h4>Express <span class="delivery-days"> (2 to 3 business days) </span>Rs 350</h4>
+                    <p>Order within  <span class="dateNtime">6 hrs 1 min</span> to get it by <span class="dateNtime">Mon, Jan 13</span></p>
+                </div>
+                </div>
+                <div class="options" fxLayout="row" fxLayoutAlign="start left">
+                    <mat-radio-button value="3" [formControl]="diliveryType" [checked]="isCheckedDelivery" (click)="onSelectRadio3()"></mat-radio-button>
+                    <div class="text-radio-button">
+                        <h4>Next day<span class="delivery-days"> (1 to 2 days) </span> Rs 500</h4>
+                        <p>Order within <span class="dateNtime">6 hrs 1 min </span>to get it by <span class="dateNtime">Thurs, Jan 09</span></p>
+                    </div>
+                </div> 
+                
+            </mat-radio-group>
+            <div>qweqeqwe {{selectedRadio}}</div>
+        </div>
+    </div>
+    <div class="payments">
+        <h3>3. Payment Method</h3>
+        <div class="payment-methods" fxLayout="row" fxLayoutAlign="space-between left">
+            <div class="method" [ngStyle]="{'border': selectedMethod=='card' ? '1.5px #59B9AF solid;' : '1.5px lightgrey solid;' }" >
+                <a  (click)="onClickCard()" class="card" fxLayout="column" fxLayoutAlign="space-between center">
+                    <div class="icon"><img src="../../assets/image 9.svg" alt=""></div>
+                    <div><img src="../../assets/Pay with Card.svg" alt=""></div>
+                </a>
+            </div>
+            <div class="method" [ngStyle]="{'border': selectedMethod=='paypal' ? '1.5px #59B9AF solid;' : '1.5px lightgrey solid;' }">
+                <a (click)="onClickPaypal()" class="paypal" fxLayout="column" fxLayoutAlign="space-between center">
+                    <div class="icon"><img src="../../assets/Group 7360.svg" alt=""></div>
+                    <div><img src="../../assets/Pay with PayPal.svg" alt=""></div>
+                </a>
+            </div>
+            <div  class="method" [ngStyle]="{'border': selectedMethod=='klarna' ? '1.5px #59B9AF solid;' : '1.5px lightgrey solid;' }">
+                <a (click)="onClickKlarna()" class="klarna" fxLayout="column" fxLayoutAlign="space-between center">
+                    <span class="icon"><img src="../../assets/YT9flmh5_400x400 1.svg" alt=""></span>
+                    <span><img src="../../assets/Pay with Klarna.svg" alt=""></span>
+                </a>
+            </div>
+            <div class="method" [ngStyle]="{'border': selectedMethod=='amazon' ? '1.5px #59B9AF solid;' : '1.5px lightgrey solid;' }">
+                <a (click)="onClickAmazon()" class="amazon" fxLayout="column" fxLayoutAlign="space-between center" >
+                    <span class="icon"><img src="../../assets/pngegg 2.svg" alt=""></span>
+                    <span><img src="../../assets/Pay with Klarna.svg" alt=""></span>
+                </a>
+            </div>
+        </div>
+        <div class="selected-method">
+            <div class="selected-method-card" *ngIf="selectedMethod=='card'">
+                <div class="card-input" fxLayout="row" fxLayoutAlign="space-between center" >
+                   <div>
+                    <img src="../../assets/Group 7174.svg" alt="" class="card-img">
+                    <input type="text" id="card-number" class="card-feilds card-number" placeholder="Card Number" maxlength="14">
+                   </div>
+                    <!-- <input type="month" class="card-feilds date" placeholder="MM/YY" maxlength="5"> -->
+                    <!-- <input type="month" id="start" name="start" min="2018-03" value="2018-05"> -->
+                    <div fxLayout="row" fxLayoutAlign="space-between center">
+                        <select aria-placeholder="MM" class="select" name="cars" id="cars">
+                            <option value="volvo">MM</option>
+                            <option value="saab">Jan</option>
+                            <option value="opel">Feb</option>
+                            <option value="audi">Mar</option>
+                            <option value="volvo">Apr</option>
+                            <option value="saab">May</option>
+                            <option value="opel">Jun</option>
+                            <option value="audi">Jul</option>
+                            <option value="volvo">Aug</option>
+                            <option value="saab">Sep</option>
+                            <option value="opel">Oct</option>
+                            <option value="audi">Nov</option>
+                            <option value="audi">Dec</option>
+                          </select>/
+                          <select class="select" name="cars" id="cars">
+                            <option value="volvo">YY</option>
+                            <option value="saab">22</option>
+                            <option value="opel">23</option>
+                            <option value="audi">24</option>
+                            <option value="volvo">25</option>
+                            <option value="saab">26</option>
+                            <option value="opel">27</option>
+                            <option value="audi">28</option>
+                          </select>
+                    </div>
+                    <input type="text" class="card-feilds cvv" placeholder="CVV" maxlength="3">
+                </div>
+            </div>
+            <div class="selected-method-paypal" *ngIf="selectedMethod=='paypal'">
+                <img src="../../assets/Group 7445 copy.svg" alt="">
+            </div>
+            <div class="selected-method-klarna" *ngIf="selectedMethod=='klarna'">
+                <img src="../../assets/Group 74391.svg" alt="">
+            </div>
+            <div class="selected-method-amazon" *ngIf="selectedMethod=='amazon'">
+                <img src="../../assets/Group 7445 copy.svg" alt="">
+            </div>
+        </div>
+        <!-- <div class="input-feild" fxLayout="row" fxLayoutAlign="space-between center">
+            <input class="otp-feild" matInput placeholder=" Enter Promo Code" [formControl]="promo">
+            <button (click)="onClickPromo()" class="verify">Apply</button>
+        </div> 
+        <div *ngIf="showPromo==true" class="promo" >
+            <img src="../../assets/Promo Code Added! Please review your order detail for updated cart before making the payment..svg" alt="">
+        </div> -->
+
+        <div>
+            <mat-checkbox class="example-margin" [checked]="isChecked">Email my basket to me if I leave checkout early</mat-checkbox>
+            <p class="info"><img src="../../assets/Group.svg" alt=""> We will set this payment method as your default, that you can change later. <img src="../../assets/Rectangle-3-_x2B_-Letters.svg" alt=""> <img src="" alt=""> </p>
+            
+        </div>
+        <div class="buttons" fxLayout="column" fxLayoutAlign="space-between stretch" >
+            <button routerLink="order-detail-guest" (click)="onContinue()" class="black"> <img class="lock" src="../../assets/Vector.svg" alt="" type="submmit" > {{selectedMethod === '' ? ' Continue':'Pay with '+ selectedMethod}}</button>
+            <button routerLink="sign-in" class="white" (click)="onGoBack()"> <img src="../../assets/Vector copy.svg" alt=""> Go Back</button>
+        </div>
+    </div>
+</div>
+
+<!-- <app-order-detail></app-order-detail> -->

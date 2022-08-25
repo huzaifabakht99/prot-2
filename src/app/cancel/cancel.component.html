@@ -1,0 +1,14 @@
+<div class="main">
+    <div fxLayout="row" fxLayoutAlign="space-between stretch">
+        <h3>Cancel Order</h3><a (click)="onClick()"><mat-icon id="icon">clear</mat-icon></a>
+    </div>
+<p>Are you sure you want to cancel this order?</p>
+<div class="xyz" fxLayout="row" fxLayoutAlign="space-around center">
+    <div class="buttons" fxLayout="row" fxLayoutAlign="end center">
+        <button class="btn-yes" (click)="onClick()">Yes</button>
+        <button class="btn-no" (click)="onClick()" routerLink="main-checkout">No</button>
+    </div>
+</div>
+    
+</div>
+

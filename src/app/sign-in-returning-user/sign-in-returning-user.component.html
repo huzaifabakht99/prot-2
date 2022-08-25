@@ -1,0 +1,32 @@
+<app-returning-menu-bar></app-returning-menu-bar>
+<div class="main">
+    <div class="">
+        <div class="signin-form">
+            <div class="text">
+                <h3>Sign In for a Faster Checkout and Acess to Reward</h3>
+                <p>We’ll send you  a 4-digit code via SMS<span></span></p>
+            </div>
+            <div class="input-feild" fxLayout="column" fxLayoutAlign="space-around left">
+                <mat-form-field appearance="outline">
+                    <div fxLayout="row" fxLayoutAlign="space-around left">
+                        <div id="flag"><img  src="../../assets/flag.svg" alt=""></div>
+                    <input class="number" type="number" matInput placeholder="Phone Number" [formControl]="number" maxlength="11" (keyup.enter)="onSignIn()">
+                    </div>
+                    <mat-error *ngIf="number.invalid">Number must contain digits</mat-error>
+                </mat-form-field>
+                
+            </div>
+            <div class="check-box" fxLayout="row" fxLayoutAlign="start left">
+                <mat-checkbox  ></mat-checkbox>
+                <div class="inner-text"> By countinuing I agreed to QisstPay <span class="terms-text">Terms of service</span> and authorize QisstPay to obtain, 
+                use and share consumer report about me.</div>
+            </div>
+            
+            <div class="buttons" fxLayout="column" fxLayoutAlign="space-between stretch" >
+                <button mat-raised-button routerLink="otp" class="black" (click)="onSignIn()" [disabled]="number.value===''&&number.invalid==false">Sign In</button>
+                <button mat-raised-button routerLink="main-form-guest" (click)="onGuestSignIn()" class="white" [disabled]="number.value===''&&number.invalid==false" >Guest Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,22 @@
+<header>
+    <div class="menubar" fxLayout="row" fxLayoutAlign="space-between stretch">
+        <a (click)="onBack()"><mat-icon id="icon">keyboard_backspace</mat-icon></a>
+        <h3>Verification</h3>
+        
+    </div>
+</header>
+<div class="main">
+    <h2>We sent you a code to verify your mobile number</h2>
+    <p>Enter your OTP code here sent to <span class="number">{{number}}</span></p>
+    <div class="input-feild" fxLayout="row" fxLayoutAlign="space-between center">
+        <!-- <input class="otp-feild" matInput placeholder="****" [formControl]="otp" id="partitioned" type="text" maxlength="4"> -->
+        <ng-otp-input type="Number" [config]="{length:4,allowNumbersOnly:true}" (onInputChange)="onOtpChange()"></ng-otp-input>
+        <button mat-raised-button (click)="openDialog()"  [disabled]="enableButton==false"><span class="button-text">Verify</span></button>
+    </div>  
+      <div class="text" fxLayout="column" fxLayoutAlign="space-around center">
+        <p class="didnt">I didn’t receive a code!</p>
+        <a (click)="onResend()">Resend code</a>
+        <a href="" routerLink="sign-in" (click)="onClick()">Change Number</a>
+      </div>
+      <!-- <input type="date" [ngModel] ="dt | date:'MM/yy'" (ngModelChange)="dt = $event" maxlength="5"> -->
+</div>
