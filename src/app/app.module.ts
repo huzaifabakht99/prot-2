@@ -43,6 +43,7 @@ import { OtpReturningUserComponent } from './otp-returning-user/otp-returning-us
 import { SignInReturningUserComponent } from './sign-in-returning-user/sign-in-returning-user.component';
 import { ReturningMenuBarComponent } from './returning-menu-bar/returning-menu-bar.component';
 import { MainCheckoutReturningComponent } from './main-checkout-returning/main-checkout-returning.component';
+import { HtmlCssComponent } from './html-css/html-css.component';
 
 
 
@@ -77,7 +78,8 @@ import { MainCheckoutReturningComponent } from './main-checkout-returning/main-c
     OtpReturningUserComponent,
     SignInReturningUserComponent,
     ReturningMenuBarComponent,
-    MainCheckoutReturningComponent
+    MainCheckoutReturningComponent,
+    HtmlCssComponent
   ],
   imports: [
     BrowserModule,
